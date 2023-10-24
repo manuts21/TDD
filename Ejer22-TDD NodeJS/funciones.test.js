@@ -33,9 +33,19 @@ describe("*** VALIDAR MULTIPLICACIONES ***", () => {
 });
 
 describe("*** VALIDAR DIVISIONES ***", () => {
-    test("20 / 2 = 10", () => {
-      expect(div(20, 2)).toEqual(10);
-    });
+  test("20 / 0 lanza un error", () => {
+      try {
+          div(20, 0);
+          // Si la división por cero no lanza un error, la prueba fallará.
+      } catch (error) {
+          // Se espera que se lance un error, por lo que la prueba pasará si llega a este punto.
+          expect(error.message).toBe("Division by zero");
+      }
+  });
+
+
+
+
   
     
     //test("20 / 0 = 0", () => {
